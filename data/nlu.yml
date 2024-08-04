@@ -1,0 +1,146 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremely sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: ask_purpose_of_cStock
+  examples: |
+    - What is the purpose of the cStock system?
+    - Can you tell me about the cStock system?
+    - What does cStock do?
+    - How does cStock help with supply chain management?
+
+- intent: ask_improve_supply_chain_management
+  examples: |
+    - How does cStock improve supply chain management?
+    - In what way does cStock help with inventory management?
+    - How can cStock make supply chain management better?
+    - What are the benefits of using cStock for supply chain management?
+
+- intent: ask_escalate_query
+  examples: |
+    - How can I escalate a complex query to a live help desk agent?
+    - I need to talk to a help desk agent. How can I do that?
+    - Can I escalate my query to a live agent?
+    - What should I do if I need live help?
+
+- intent: ask_chatbot_resources
+  examples: |
+    - What kind of resources can the chatbot provide?
+    - How can the chatbot help me with my job role?
+    - What information can I get from the chatbot?
+    - What resources are available through the chatbot?
+
+- intent: ask_reduce_call_volume
+  examples: |
+    - How does the chatbot help reduce call volume for the help desk?
+    - In what way does the chatbot minimize help desk calls?
+    - How is call volume reduced with the chatbot?
+    - Can the chatbot decrease the number of calls to the help desk?
+
+- intent: ask_real_time_data
+  examples: |
+    - Can I access real-time supply chain data through the chatbot?
+    - Does the chatbot provide real-time supply chain information?
+    - How can I get real-time data from cStock?
+    - Is real-time data available through the chatbot?
+
+- intent: ask_start_chatbot
+  examples: |
+    - How do I get started with using the chatbot?
+    - What should I do to begin using the chatbot?
+    - How can I start interacting with the chatbot?
+    - How do I use the chatbot for assistance?
+
+- intent: faq
+  examples: |
+    - What are the clinic's opening hours?
+    - How can I book an appointment?
+    - What services do you offer?

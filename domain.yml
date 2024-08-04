@@ -1,0 +1,63 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_purpose_of_cStock
+  - ask_improve_supply_chain_management
+  - ask_escalate_query
+  - ask_chatbot_resources
+  - ask_reduce_call_volume
+  - ask_real_time_data
+  - ask_start_chatbot
+  - faq
+  - escalate
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I help you today?"
+  utter_goodbye:
+    - text: "Goodbye! Have a nice day."
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_did_that_help:
+    - text: "Did that help you?"
+  utter_happy:
+    - text: "Great, carry on!"
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+  utter_faq/clinic_hours:
+    - text: "The clinic is open from 9 AM to 5 PM, Monday to Friday."
+  utter_faq/book_appointment:
+    - text: "You can book an appointment by calling our front desk at (123) 456-7890."
+  utter_faq/services:
+    - text: "We offer a variety of healthcare services including general consultations, vaccinations, and health screenings."
+  utter_escalate:
+    - text: "I am escalating your query to a live agent. Please wait."
+  utter_ask_purpose_of_cStock:
+    - text: "cStock connects community health volunteers (CHVs) with facilities and promotes demand-based resupply. It helps ensure greater product availability in communities by providing real-time supply chain data. This allows CHV supervisors, facility staff, and managers to better manage inventory and plan for demand."
+  utter_ask_improve_supply_chain_management:
+    - text: "cStock improves supply chain management by providing real-time data on inventory levels and demand. This helps CHV supervisors and facility staff make informed decisions about resupply and inventory management, ensuring that products are available where they are needed most."
+  utter_ask_escalate_query:
+    - text: "If you have a complex query that the chatbot cannot address, you can escalate it to a live help desk agent directly through the chatbot interface. Simply use the option provided in the chat to request live assistance, and a help desk agent will take over to provide further support."
+  utter_ask_chatbot_resources:
+    - text: "The chatbot can provide immediate access to resources related to your job role, including information about inventory management, demand planning, and cStock system functionalities. It can also answer common questions and guide you on how to use various features within the system."
+  utter_ask_reduce_call_volume:
+    - text: "By providing immediate answers and resources for common questions and issues, the chatbot reduces the need for users to call the help desk for routine inquiries. This allows help desk agents to focus on more complex issues and provide more efficient support."
+  utter_ask_real_time_data:
+    - text: "The chatbot itself may not directly provide real-time supply chain data but can guide you on how to access this data within the cStock system. For specific queries about real-time data, you might need to consult the cStock platform or request assistance from a help desk agent."
+  utter_ask_start_chatbot:
+    - text: "To get started, simply initiate a conversation with the chatbot and specify your queries or the type of assistance you need. The chatbot will guide you through the process and provide relevant information or escalate your query to a live agent if needed."
+
+actions:
+  - action_escalate_to_agent
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

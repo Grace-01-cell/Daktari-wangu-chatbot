@@ -1,0 +1,102 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: User asks about cStock's purpose
+  steps:
+    - intent: ask_purpose_of_cStock
+    - action: utter_ask_purpose_of_cStock
+
+- story: User wants to know how cStock improves supply chain management
+  steps:
+    - intent: ask_improve_supply_chain_management
+    - action: utter_ask_improve_supply_chain_management
+
+- story: User needs to escalate a complex query to a live help desk agent
+  steps:
+    - intent: ask_escalate_query
+    - action: utter_ask_escalate_query
+
+- story: User asks what resources the chatbot can provide
+  steps:
+    - intent: ask_chatbot_resources
+    - action: utter_ask_chatbot_resources
+
+- story: User inquires how the chatbot reduces call volume
+  steps:
+    - intent: ask_reduce_call_volume
+    - action: utter_ask_reduce_call_volume
+
+- story: User wants to know if real-time data is available through the chatbot
+  steps:
+    - intent: ask_real_time_data
+    - action: utter_ask_real_time_data
+
+- story: User needs guidance on how to start using the chatbot
+  steps:
+    - intent: ask_start_chatbot
+    - action: utter_ask_start_chatbot
+
+- story: User asks multiple questions
+  steps:
+    - intent: ask_purpose_of_cStock
+    - action: utter_ask_purpose_of_cStock
+    - intent: ask_improve_supply_chain_management
+    - action: utter_ask_improve_supply_chain_management
+    - intent: ask_escalate_query
+    - action: utter_ask_escalate_query
+    - intent: ask_chatbot_resources
+    - action: utter_ask_chatbot_resources
+    - intent: ask_reduce_call_volume
+    - action: utter_ask_reduce_call_volume
+    - intent: ask_real_time_data
+    - action: utter_ask_real_time_data
+    - intent: ask_start_chatbot
+    - action: utter_ask_start_chatbot
+
+- story: answer clinic hours
+  steps:
+    - intent: faq
+    - action: utter_faq/clinic_hours
+
+- story: answer book appointment
+  steps:
+    - intent: faq
+    - action: utter_faq/book_appointment
+
+- story: answer services
+  steps:
+    - intent: faq
+    - action: utter_faq/services
+
+- story: escalate to agent
+  steps:
+    - intent: escalate
+    - action: action_escalate_to_agent

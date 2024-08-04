@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daktari Wangu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .chat-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .chat-log {
+            list-style: none;
+            padding: 0;
+        }
+        .chat-log li {
+            margin-bottom: 10px;
+        }
+        .chat-log .user {
+            text-align: right;
+        }
+        .chat-log .bot {
+            text-align: left;
+        }
+        .chat-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .chat-submit {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .chat-submit:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <ul class="chat-log" id="chat-log"></ul>
+        <input type="text" id="chat-input" class="chat-input" placeholder="Type a message...">
+        <button class="chat-submit" onclick="sendMessage()">Send</button>
+    </div>
+    <script>
+        function addMessage(message, user) {
+            const chatLog = document.getElementById('chat-log');
+            const messageElement = document.createElement('li');
+            messageElement.className = user;
+            messageElement.textContent = message;
+            chatLog.appendChild(messageElement);
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value;
+            if (message) {
+                addMessage(message, 'user');
+                input.value = '';
+                fetch('http://localhost:5005/webhooks/rest/webhook', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ sender: 'user', message: message })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(response => {
+                        addMessage(response.text, 'bot');
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

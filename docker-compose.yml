@@ -1,0 +1,52 @@
+# version: '3.8'
+
+# services:
+#   rasa:
+#     image: rasa/rasa:3.0.0
+#     ports:
+#       - 5005:5005
+#     volumes:
+#       - ./:/app
+#       - ./models:/app/models
+#       - ./actions:/app/actions
+#     command:
+#       - run
+#       - --enable-api
+#       - --cors
+#       - "*"
+#       - --debug
+
+#   action_server:
+#     image: rasa/rasa-sdk:3.0.0
+#     ports:
+#       - 5055:5055
+#     volumes:
+#       - ./actions:/app/actions
+version: '3.8'
+
+services:
+  rasa:
+    environment:
+      - SQLALCHEMY_WARN_20=1
+      - SQLALCHEMY_SILENCE_UBER_WARNING=1
+    image: rasa/rasa:latest-full
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./config:/app/config
+      - ./config.yml:/app/config.yml
+      - ./credentials.yml:/app/credentials.yml
+      - ./endpoints.yml:/app/endpoints.yml
+      - ./domain.yml:/app/domain.yml
+      - ./actions:/app/actions
+    command: run --enable-api --cors '*'
+
+  action_server:
+    image: rasa/rasa-sdk:latest
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./actions:/app/actions
+
